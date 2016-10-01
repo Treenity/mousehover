@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: Mousehover
+Plugin Name: Mousehover Image
 Plugin URI: http://www.treenity-web.fr
 Description: Plugin rajoutant le shortcode [imghover]<img image><img image hover>[/imghover]
 Version: 1.0
