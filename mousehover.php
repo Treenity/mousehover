@@ -33,14 +33,17 @@ class onMouseHover {
 
 		if ( preg_match( '#(?:<img|(?<!^)\G)\h*(\w+)="([^"]+)"(?=.*?\/>)#im', $content, $images ) ) {
 			echo '<img src="' . $images[1][2] . '" data-src="' . $images[3][2] . '" class="' . $images[2][2] . '"/>';
-			echo <<<'HTML'
+			echo <<<HTML
 <script>
-    $("img[data-src]").hover(function () {
-        var oldImg = $(this).attr("src");
-        $(this).attr("src", $(this).data("src"));
-    }, function () {
-        $(this).attr("src", oldImg)
-    });
+    jQuery(function ($) {
+        var oldImg;
+        $("img[data-src]").hover(function () {
+            oldImg = $(this).attr("src");
+            $(this).attr("src", $(this).data("src"));
+        }, function () {
+            $(this).attr("src", oldImg)
+        });
+    })
 </script>
 HTML;
 		}
