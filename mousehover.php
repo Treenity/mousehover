@@ -21,7 +21,7 @@ class onMouseHover {
 	/**
 	 * onMouseHover constructor.
 	 */
-	function __construct() {
+	public function __construct() {
 		add_shortcode( 'imghover', array( $this, 'shortcodeCallback' ) );
 	}
 
@@ -29,10 +29,10 @@ class onMouseHover {
 	 * @param $atts
 	 * @param $content
 	 */
-	function shortcodeCallback( $atts, $content ) {
+	public function shortcodeCallback( $atts, $content ) {
 
-		if ( preg_match( '#(?:<img|(?<!^)\G)\h*(\w+)="([^"]+)"(?=.*?\/>)#gim', $content, $images ) ) {
-			echo '<img src="' . $images[ 1 ][ 2 ] . '" data-src="' . $images[ 3 ][ 2 ] . '" class="' . $images[ 2 ][ 2 ] . '"/>';
+		if ( preg_match( '#(?:<img|(?<!^)\G)\h*(\w+)="([^"]+)"(?=.*?\/>)#im', $content, $images ) ) {
+			echo '<img src="' . $images[1][2] . '" data-src="' . $images[3][2] . '" class="' . $images[2][2] . '"/>';
 			echo <<<'HTML'
 <script>
     $("img[data-src]").hover(function () {
